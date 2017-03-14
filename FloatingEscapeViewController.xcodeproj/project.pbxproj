@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8041D4B11E765AF700FD914B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8041D4B01E765AF700FD914B /* ContainerViewController.swift */; };
+		807BC1F91E777D4D007D8D67 /* TouchThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807BC1F81E777D4D007D8D67 /* TouchThroughView.swift */; };
+		807BC1FD1E77AE8B007D8D67 /* BackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807BC1FC1E77AE8B007D8D67 /* BackViewController.swift */; };
+		807BC1FF1E77AE96007D8D67 /* FrontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807BC1FE1E77AE96007D8D67 /* FrontViewController.swift */; };
 		80E0F53C1E7649CE004CE79A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E0F53B1E7649CE004CE79A /* AppDelegate.swift */; };
 		80E0F53E1E7649CE004CE79A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E0F53D1E7649CE004CE79A /* ViewController.swift */; };
 		80E0F5411E7649CE004CE79A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E0F53F1E7649CE004CE79A /* Main.storyboard */; };
@@ -34,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8041D4B01E765AF700FD914B /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		807BC1F81E777D4D007D8D67 /* TouchThroughView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchThroughView.swift; sourceTree = "<group>"; };
+		807BC1FC1E77AE8B007D8D67 /* BackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackViewController.swift; sourceTree = "<group>"; };
+		807BC1FE1E77AE96007D8D67 /* FrontViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontViewController.swift; sourceTree = "<group>"; };
 		80E0F5381E7649CE004CE79A /* FloatingEscapeViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloatingEscapeViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E0F53B1E7649CE004CE79A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80E0F53D1E7649CE004CE79A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,10 +107,14 @@
 			children = (
 				80E0F53B1E7649CE004CE79A /* AppDelegate.swift */,
 				80E0F53D1E7649CE004CE79A /* ViewController.swift */,
+				8041D4B01E765AF700FD914B /* ContainerViewController.swift */,
 				80E0F53F1E7649CE004CE79A /* Main.storyboard */,
 				80E0F5421E7649CE004CE79A /* Assets.xcassets */,
 				80E0F5441E7649CE004CE79A /* LaunchScreen.storyboard */,
 				80E0F5471E7649CE004CE79A /* Info.plist */,
+				807BC1F81E777D4D007D8D67 /* TouchThroughView.swift */,
+				807BC1FC1E77AE8B007D8D67 /* BackViewController.swift */,
+				807BC1FE1E77AE96007D8D67 /* FrontViewController.swift */,
 			);
 			path = FloatingEscapeViewController;
 			sourceTree = "<group>";
@@ -259,7 +271,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				807BC1FF1E77AE96007D8D67 /* FrontViewController.swift in Sources */,
+				807BC1F91E777D4D007D8D67 /* TouchThroughView.swift in Sources */,
 				80E0F53E1E7649CE004CE79A /* ViewController.swift in Sources */,
+				8041D4B11E765AF700FD914B /* ContainerViewController.swift in Sources */,
+				807BC1FD1E77AE8B007D8D67 /* BackViewController.swift in Sources */,
 				80E0F53C1E7649CE004CE79A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +521,7 @@
 				80E0F5621E7649CF004CE79A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		80E0F5631E7649CF004CE79A /* Build configuration list for PBXNativeTarget "FloatingEscapeViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +530,7 @@
 				80E0F5651E7649CF004CE79A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		80E0F5661E7649CF004CE79A /* Build configuration list for PBXNativeTarget "FloatingEscapeViewControllerUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +539,7 @@
 				80E0F5681E7649CF004CE79A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
