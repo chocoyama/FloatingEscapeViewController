@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8041D4B11E765AF700FD914B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8041D4B01E765AF700FD914B /* ContainerViewController.swift */; };
+		8041D4B11E765AF700FD914B /* FloatingEscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8041D4B01E765AF700FD914B /* FloatingEscapeViewController.swift */; };
 		807BC1FD1E77AE8B007D8D67 /* BackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807BC1FC1E77AE8B007D8D67 /* BackViewController.swift */; };
 		807BC1FF1E77AE96007D8D67 /* FrontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807BC1FE1E77AE96007D8D67 /* FrontViewController.swift */; };
 		807BC2051E77EB4F007D8D67 /* FloatingEscapeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 807BC2041E77EB4F007D8D67 /* FloatingEscapeViewController.storyboard */; };
+		807BC2071E77EB8A007D8D67 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807BC2061E77EB8A007D8D67 /* EntryViewController.swift */; };
 		80E0F53C1E7649CE004CE79A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E0F53B1E7649CE004CE79A /* AppDelegate.swift */; };
 		80E0F5411E7649CE004CE79A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E0F53F1E7649CE004CE79A /* Main.storyboard */; };
 		80E0F5431E7649CE004CE79A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80E0F5421E7649CE004CE79A /* Assets.xcassets */; };
@@ -37,10 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8041D4B01E765AF700FD914B /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		8041D4B01E765AF700FD914B /* FloatingEscapeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingEscapeViewController.swift; sourceTree = "<group>"; };
 		807BC1FC1E77AE8B007D8D67 /* BackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackViewController.swift; sourceTree = "<group>"; };
 		807BC1FE1E77AE96007D8D67 /* FrontViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontViewController.swift; sourceTree = "<group>"; };
 		807BC2041E77EB4F007D8D67 /* FloatingEscapeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FloatingEscapeViewController.storyboard; sourceTree = "<group>"; };
+		807BC2061E77EB8A007D8D67 /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		80E0F5381E7649CE004CE79A /* FloatingEscapeViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloatingEscapeViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E0F53B1E7649CE004CE79A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80E0F5401E7649CE004CE79A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -105,13 +107,14 @@
 			children = (
 				80E0F53B1E7649CE004CE79A /* AppDelegate.swift */,
 				807BC2041E77EB4F007D8D67 /* FloatingEscapeViewController.storyboard */,
-				8041D4B01E765AF700FD914B /* ContainerViewController.swift */,
+				8041D4B01E765AF700FD914B /* FloatingEscapeViewController.swift */,
 				80E0F53F1E7649CE004CE79A /* Main.storyboard */,
 				80E0F5421E7649CE004CE79A /* Assets.xcassets */,
 				80E0F5441E7649CE004CE79A /* LaunchScreen.storyboard */,
 				80E0F5471E7649CE004CE79A /* Info.plist */,
 				807BC1FC1E77AE8B007D8D67 /* BackViewController.swift */,
 				807BC1FE1E77AE96007D8D67 /* FrontViewController.swift */,
+				807BC2061E77EB8A007D8D67 /* EntryViewController.swift */,
 			);
 			path = FloatingEscapeViewController;
 			sourceTree = "<group>";
@@ -270,7 +273,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				807BC1FF1E77AE96007D8D67 /* FrontViewController.swift in Sources */,
-				8041D4B11E765AF700FD914B /* ContainerViewController.swift in Sources */,
+				807BC2071E77EB8A007D8D67 /* EntryViewController.swift in Sources */,
+				8041D4B11E765AF700FD914B /* FloatingEscapeViewController.swift in Sources */,
 				807BC1FD1E77AE8B007D8D67 /* BackViewController.swift in Sources */,
 				80E0F53C1E7649CE004CE79A /* AppDelegate.swift in Sources */,
 			);

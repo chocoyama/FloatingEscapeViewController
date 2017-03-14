@@ -8,20 +8,20 @@
 
 import UIKit
 
-class BackViewController: UIViewController, ContainerControllable {
+class BackViewController: UIViewController, FloatingEscapeControllable {
     
-    weak var containerController: ContainerController?
+    weak var floatingEscapeViewController: FloatingEscapeViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func didTappedShowButton(_ sender: Any) {
-        containerController?.showFloatingView()
+        floatingEscapeViewController?.show()
     }
     
     @IBAction func didTappedHideButton(_ sender: Any) {
-        containerController?.hideFloatingView()
+        floatingEscapeViewController?.hide()
     }
     
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nO7-Ze-fEF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4DY-om-sgm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,75 +9,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Container View Controller-->
-        <scene sceneID="mTf-JJ-3pt">
+        <!--Entry View Controller-->
+        <scene sceneID="PrV-Ul-Xnh">
             <objects>
-                <viewController id="nO7-Ze-fEF" customClass="ContainerViewController" customModule="FloatingEscapeViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4DY-om-sgm" customClass="EntryViewController" customModule="FloatingEscapeViewController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="JQt-Mn-cmS"/>
-                        <viewControllerLayoutGuide type="bottom" id="4a8-5K-Z5q"/>
+                        <viewControllerLayoutGuide type="top" id="qVa-dL-zNj"/>
+                        <viewControllerLayoutGuide type="bottom" id="7g3-Eu-bJl"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Rra-iZ-1ee">
+                    <view key="view" contentMode="scaleToFill" id="Ofg-Yq-S6N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bfk-tX-KoD">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                            </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BfZ-cn-VYH">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="gWb-ru-XVf"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2em-Uc-YYq">
+                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="A6d-Vf-i3f" appends="YES" id="nBv-Nl-2Wf"/>
-                                    <outletCollection property="gestureRecognizers" destination="7kd-I3-O25" appends="YES" id="ABa-wS-p88"/>
+                                    <action selector="didTappedEntryButton:" destination="4DY-om-sgm" eventType="touchUpInside" id="l2W-Fb-6w7"/>
                                 </connections>
-                            </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usk-Hb-puo">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </containerView>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Bfk-tX-KoD" firstAttribute="top" secondItem="JQt-Mn-cmS" secondAttribute="bottom" id="8F7-Qo-OWI"/>
-                            <constraint firstAttribute="trailing" secondItem="usk-Hb-puo" secondAttribute="trailing" id="IE8-B0-X81"/>
-                            <constraint firstAttribute="bottom" secondItem="usk-Hb-puo" secondAttribute="bottom" id="MEu-nc-zKf"/>
-                            <constraint firstItem="usk-Hb-puo" firstAttribute="leading" secondItem="Rra-iZ-1ee" secondAttribute="leading" id="OGL-YX-GHf"/>
-                            <constraint firstItem="usk-Hb-puo" firstAttribute="top" secondItem="BfZ-cn-VYH" secondAttribute="bottom" id="SgH-sF-nug"/>
-                            <constraint firstAttribute="trailing" secondItem="Bfk-tX-KoD" secondAttribute="trailing" id="e7m-SG-QpO"/>
-                            <constraint firstItem="4a8-5K-Z5q" firstAttribute="top" secondItem="Bfk-tX-KoD" secondAttribute="bottom" id="fVX-hn-5qD"/>
-                            <constraint firstItem="Bfk-tX-KoD" firstAttribute="leading" secondItem="Rra-iZ-1ee" secondAttribute="leading" id="fwO-dZ-8XN"/>
-                            <constraint firstAttribute="trailing" secondItem="BfZ-cn-VYH" secondAttribute="trailing" id="h5o-n3-9W2"/>
-                            <constraint firstItem="BfZ-cn-VYH" firstAttribute="leading" secondItem="Rra-iZ-1ee" secondAttribute="leading" id="oYp-l7-L9o"/>
-                            <constraint firstItem="BfZ-cn-VYH" firstAttribute="top" secondItem="JQt-Mn-cmS" secondAttribute="bottom" id="wKO-3X-zXX"/>
+                            <constraint firstItem="2em-Uc-YYq" firstAttribute="centerY" secondItem="Ofg-Yq-S6N" secondAttribute="centerY" id="EYg-07-Q2O"/>
+                            <constraint firstItem="2em-Uc-YYq" firstAttribute="centerX" secondItem="Ofg-Yq-S6N" secondAttribute="centerX" id="iy1-Kj-YHA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="6cf-Zd-03G"/>
-                    <connections>
-                        <outlet property="backContainerView" destination="Bfk-tX-KoD" id="4dl-m3-Wa3"/>
-                        <outlet property="floatingView" destination="BfZ-cn-VYH" id="ziU-eb-0rF"/>
-                        <outlet property="floatingViewHeightConstraint" destination="gWb-ru-XVf" id="KPu-iH-OmX"/>
-                        <outlet property="floatingViewTopConstraint" destination="wKO-3X-zXX" id="9dz-Xg-Nul"/>
-                        <outlet property="frontContainerView" destination="usk-Hb-puo" id="H2X-nH-kLh"/>
-                        <outlet property="frontContainerViewBottomConstraint" destination="MEu-nc-zKf" id="0wD-J6-O8k"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H5C-zd-lit" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="A6d-Vf-i3f">
-                    <connections>
-                        <action selector="didTappedFloatingView:" destination="nO7-Ze-fEF" id="Oeo-nO-bTE"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="7kd-I3-O25">
-                    <connections>
-                        <action selector="didSwipedFloatingView:" destination="nO7-Ze-fEF" id="FDu-xE-2Fo"/>
-                    </connections>
-                </panGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bYD-JD-ObU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-836" y="-1211.2443778110946"/>
+            <point key="canvasLocation" x="-1234" y="-1259"/>
         </scene>
         <!--Back View Controller-->
         <scene sceneID="xzX-CC-Pn3">
@@ -88,21 +49,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeV-PB-0Te">
-                                <rect key="frame" x="172" y="318.5" width="31" height="30"/>
+                                <rect key="frame" x="172" y="319" width="31" height="30"/>
                                 <state key="normal" title="表示"/>
                                 <connections>
                                     <action selector="didTappedShowButton:" destination="ucY-by-SuP" eventType="touchUpInside" id="sah-Yt-0ny"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rm4-DX-4gQ">
-                                <rect key="frame" x="164" y="353" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rm4-DX-4gQ">
+                                <rect key="frame" x="164" y="369" width="46" height="30"/>
                                 <state key="normal" title="非表示"/>
                                 <connections>
                                     <action selector="didTappedHideButton:" destination="ucY-by-SuP" eventType="touchUpInside" id="KzH-mI-Iqx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="後ろのView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fu-25-uvJ">
-                                <rect key="frame" x="143" y="277.5" width="89" height="21"/>
+                                <rect key="frame" x="143" y="278" width="89" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -132,10 +93,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLD-Yg-Fo5">
-                                <rect key="frame" x="149" y="318.5" width="77" height="30"/>
+                                <rect key="frame" x="149" y="319" width="77" height="30"/>
                                 <state key="normal" title="小さくする"/>
                                 <connections>
-                                    <action selector="didTappedButton:" destination="tkh-0d-aal" eventType="touchUpInside" id="wn1-1V-e5H"/>
+                                    <action selector="didTappedEscapeButton:" destination="tkh-0d-aal" eventType="touchUpInside" id="gRc-9Q-wZ6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4p-Kj-KLS">
+                                <rect key="frame" x="164.5" y="269" width="46" height="30"/>
+                                <state key="normal" title="非表示"/>
+                                <connections>
+                                    <action selector="didTappedHideButton:" destination="tkh-0d-aal" eventType="touchUpInside" id="RQw-Vs-DHH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -143,6 +111,8 @@
                         <constraints>
                             <constraint firstItem="RLD-Yg-Fo5" firstAttribute="centerY" secondItem="B37-2J-a93" secondAttribute="centerY" id="JSY-RU-YiV"/>
                             <constraint firstItem="RLD-Yg-Fo5" firstAttribute="centerX" secondItem="B37-2J-a93" secondAttribute="centerX" id="Uo0-ab-1LD"/>
+                            <constraint firstItem="Q4p-Kj-KLS" firstAttribute="centerX" secondItem="B37-2J-a93" secondAttribute="centerX" id="Vb2-dr-f88"/>
+                            <constraint firstItem="RLD-Yg-Fo5" firstAttribute="top" secondItem="Q4p-Kj-KLS" secondAttribute="bottom" constant="20" id="kvt-fD-SQr"/>
                         </constraints>
                     </view>
                 </viewController>

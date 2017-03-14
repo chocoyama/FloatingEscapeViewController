@@ -8,17 +8,20 @@
 
 import UIKit
 
-class FrontViewController: UIViewController, ContainerControllable {
+class FrontViewController: UIViewController, FloatingEscapeControllable {
     
-    weak var containerController: ContainerController?
+    weak var floatingEscapeViewController: FloatingEscapeViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    @IBAction func didTappedHideButton(_ sender: Any) {
+        floatingEscapeViewController?.hide()
+    }
 
-    @IBAction func didTappedButton(_ sender: Any) {
-        containerController?.putAwayFloatingView()
+    @IBAction func didTappedEscapeButton(_ sender: Any) {
+        floatingEscapeViewController?.escape()
     }
 
 }

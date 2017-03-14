@@ -1,5 +1,5 @@
 //
-//  ContainerViewController.swift
+//  FloatingEscapeViewController.swift
 //  FloatingEscapeViewController
 //
 //  Created by takyokoy on 2017/03/13.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-protocol ContainerControllable: class {
-    weak var containerController: ContainerController? { get set }
+protocol FloatingEscapeControllable: class {
+    weak var floatingEscapeViewController: FloatingEscapeViewController? { get set }
 }
 
-protocol ContainerController: class {
-    func showFloatingView()
-    func hideFloatingView()
-    func putAwayFloatingView()
+protocol FloatingEscapeController: class {
+    func show()
+    func hide()
+    func escape()
 }
 
-class ContainerViewController: UIViewController {
+class FloatingEscapeViewController: UIViewController {
     
     fileprivate var floatingViewDefaultHeightConstraint: CGFloat = 0
     @IBOutlet weak var floatingViewTopConstraint: NSLayoutConstraint!
@@ -36,20 +36,19 @@ class ContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initailzeForTest()
         setup()
     }
     
-    func inject<T: ContainerControllable, U: ContainerControllable>(backViewController: T, frontViewController: U) where T: UIViewController, U: UIViewController {
-        backViewController.containerController = self
-        frontViewController.containerController = self
+    func inject<T: FloatingEscapeControllable, U: FloatingEscapeControllable>(backViewController: T, frontViewController: U) where T: UIViewController, U: UIViewController {
+        backViewController.floatingEscapeViewController = self
+        frontViewController.floatingEscapeViewController = self
         self.backViewController = backViewController
         self.frontViewController = frontViewController
     }
 }
 
-extension ContainerViewController: ContainerController {
-    func showFloatingView() {
+extension FloatingEscapeViewController: FloatingEscapeController {
+    func show() {
         floatingViewHeightConstraint.constant = floatingViewDefaultHeightConstraint
         floatingViewTopConstraint.constant = 0
         frontContainerViewBottomConstraint.constant = 0
@@ -58,7 +57,7 @@ extension ContainerViewController: ContainerController {
         }
     }
     
-    func hideFloatingView() {
+    func hide() {
         floatingViewHeightConstraint.constant = 0
         floatingViewTopConstraint.constant = UIScreen.main.bounds.height
         frontContainerViewBottomConstraint.constant = -UIScreen.main.bounds.height
@@ -67,7 +66,7 @@ extension ContainerViewController: ContainerController {
         }
     }
     
-    func putAwayFloatingView() {
+    func escape() {
         floatingViewHeightConstraint.constant = floatingViewDefaultHeightConstraint
         floatingViewTopConstraint.constant = UIScreen.main.bounds.height - floatingViewDefaultHeightConstraint - 20
         frontContainerViewBottomConstraint.constant = -(UIScreen.main.bounds.height - floatingViewDefaultHeightConstraint - 20)
@@ -78,7 +77,7 @@ extension ContainerViewController: ContainerController {
 }
 
 
-extension ContainerViewController {
+extension FloatingEscapeViewController {
     @IBAction func didSwipedFloatingView(_ sender: UIPanGestureRecognizer) {
         let translationPoint = sender.translation(in: floatingView)
         let isVerticalSwipe = !(sqrt(translationPoint.x * translationPoint.x) / sqrt(translationPoint.y * translationPoint.y) > 1)
@@ -91,9 +90,9 @@ extension ContainerViewController {
         case .ended:
             let threshold = UIScreen.main.bounds.height / 2
             if floatingViewTopConstraint.constant > threshold {
-                putAwayFloatingView()
+                escape()
             } else {
-                showFloatingView()
+                show()
             }
         default: break
         }
@@ -102,26 +101,19 @@ extension ContainerViewController {
     @IBAction func didTappedFloatingView(_ sender: UITapGestureRecognizer) {
         let isPutAway = frontContainerViewBottomConstraint.constant == 0
         if isPutAway {
-            putAwayFloatingView()
+            escape()
         } else {
-            showFloatingView()
+            show()
         }
     }
 }
 
-extension ContainerViewController {
-    fileprivate func initailzeForTest() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let backViewController = storyboard.instantiateViewController(withIdentifier: "BackViewController") as! BackViewController
-        let frontViewController =  storyboard.instantiateViewController(withIdentifier: "FrontViewController") as! FrontViewController
-        inject(backViewController: backViewController, frontViewController: frontViewController)
-    }
-    
+extension FloatingEscapeViewController {
     fileprivate func setup() {
         guard let backVC = backViewController, let frontVC = frontViewController else { return }
         displayContentController(content: backVC, container: backContainerView)
         displayContentController(content: frontVC, container: frontContainerView)
-        hideFloatingView()
+        hide()
     }
     
     private func displayContentController(content: UIViewController, container: UIView) {
