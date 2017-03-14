@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BackViewController: UIViewController {
+class BackViewController: UIViewController, ContainerControllable {
     
     weak var containerController: ContainerController?
     

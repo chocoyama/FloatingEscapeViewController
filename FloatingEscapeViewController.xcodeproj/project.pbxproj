@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8041D4B11E765AF700FD914B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8041D4B01E765AF700FD914B /* ContainerViewController.swift */; };
-		807BC1F91E777D4D007D8D67 /* TouchThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807BC1F81E777D4D007D8D67 /* TouchThroughView.swift */; };
 		807BC1FD1E77AE8B007D8D67 /* BackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807BC1FC1E77AE8B007D8D67 /* BackViewController.swift */; };
 		807BC1FF1E77AE96007D8D67 /* FrontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807BC1FE1E77AE96007D8D67 /* FrontViewController.swift */; };
+		807BC2051E77EB4F007D8D67 /* FloatingEscapeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 807BC2041E77EB4F007D8D67 /* FloatingEscapeViewController.storyboard */; };
 		80E0F53C1E7649CE004CE79A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E0F53B1E7649CE004CE79A /* AppDelegate.swift */; };
-		80E0F53E1E7649CE004CE79A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E0F53D1E7649CE004CE79A /* ViewController.swift */; };
 		80E0F5411E7649CE004CE79A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E0F53F1E7649CE004CE79A /* Main.storyboard */; };
 		80E0F5431E7649CE004CE79A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80E0F5421E7649CE004CE79A /* Assets.xcassets */; };
 		80E0F5461E7649CE004CE79A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E0F5441E7649CE004CE79A /* LaunchScreen.storyboard */; };
@@ -39,12 +38,11 @@
 
 /* Begin PBXFileReference section */
 		8041D4B01E765AF700FD914B /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		807BC1F81E777D4D007D8D67 /* TouchThroughView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchThroughView.swift; sourceTree = "<group>"; };
 		807BC1FC1E77AE8B007D8D67 /* BackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackViewController.swift; sourceTree = "<group>"; };
 		807BC1FE1E77AE96007D8D67 /* FrontViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontViewController.swift; sourceTree = "<group>"; };
+		807BC2041E77EB4F007D8D67 /* FloatingEscapeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FloatingEscapeViewController.storyboard; sourceTree = "<group>"; };
 		80E0F5381E7649CE004CE79A /* FloatingEscapeViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloatingEscapeViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E0F53B1E7649CE004CE79A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		80E0F53D1E7649CE004CE79A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		80E0F5401E7649CE004CE79A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		80E0F5421E7649CE004CE79A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80E0F5451E7649CE004CE79A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -106,13 +104,12 @@
 			isa = PBXGroup;
 			children = (
 				80E0F53B1E7649CE004CE79A /* AppDelegate.swift */,
-				80E0F53D1E7649CE004CE79A /* ViewController.swift */,
+				807BC2041E77EB4F007D8D67 /* FloatingEscapeViewController.storyboard */,
 				8041D4B01E765AF700FD914B /* ContainerViewController.swift */,
 				80E0F53F1E7649CE004CE79A /* Main.storyboard */,
 				80E0F5421E7649CE004CE79A /* Assets.xcassets */,
 				80E0F5441E7649CE004CE79A /* LaunchScreen.storyboard */,
 				80E0F5471E7649CE004CE79A /* Info.plist */,
-				807BC1F81E777D4D007D8D67 /* TouchThroughView.swift */,
 				807BC1FC1E77AE8B007D8D67 /* BackViewController.swift */,
 				807BC1FE1E77AE96007D8D67 /* FrontViewController.swift */,
 			);
@@ -246,6 +243,7 @@
 			files = (
 				80E0F5461E7649CE004CE79A /* LaunchScreen.storyboard in Resources */,
 				80E0F5431E7649CE004CE79A /* Assets.xcassets in Resources */,
+				807BC2051E77EB4F007D8D67 /* FloatingEscapeViewController.storyboard in Resources */,
 				80E0F5411E7649CE004CE79A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,8 +270,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				807BC1FF1E77AE96007D8D67 /* FrontViewController.swift in Sources */,
-				807BC1F91E777D4D007D8D67 /* TouchThroughView.swift in Sources */,
-				80E0F53E1E7649CE004CE79A /* ViewController.swift in Sources */,
 				8041D4B11E765AF700FD914B /* ContainerViewController.swift in Sources */,
 				807BC1FD1E77AE8B007D8D67 /* BackViewController.swift in Sources */,
 				80E0F53C1E7649CE004CE79A /* AppDelegate.swift in Sources */,

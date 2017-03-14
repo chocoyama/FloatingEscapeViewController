@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FrontViewController: UIViewController {
+class FrontViewController: UIViewController, ContainerControllable {
     
     weak var containerController: ContainerController?
 
