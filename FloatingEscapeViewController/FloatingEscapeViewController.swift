@@ -9,27 +9,35 @@
 import UIKit
 
 protocol FloatingEscapeControllable: class {
-    weak var floatingEscapeViewController: FloatingEscapeViewController? { get set }
+    weak var floatingEscapeController: FloatingEscapeController? { get set }
 }
 
 protocol FloatingEscapeController: class {
     func show()
-    func hide()
+    func hide(animated: Bool)
     func escape()
+}
+
+protocol FloatingEscapeViewControllerDelegate: class {
+    func didStartedShowFrontViewController()
+    func didStartedHideFrontViewController()
+    func didStartedEscapeFrontViewController()
 }
 
 class FloatingEscapeViewController: UIViewController {
     
-    fileprivate var floatingViewDefaultHeightConstraint: CGFloat = 0
-    @IBOutlet weak var floatingViewTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var floatingViewHeightConstraint: NSLayoutConstraint! {
-        didSet { floatingViewDefaultHeightConstraint = floatingViewHeightConstraint.constant }
-    }
+    weak var delegate: FloatingEscapeViewControllerDelegate?
+    
+    fileprivate var floatingHeight: CGFloat = 0
+    fileprivate var topMargin: CGFloat = 0
+    fileprivate var floatingBottomMargin: CGFloat = 0
+    fileprivate var swipeStartPoint: CGPoint?
+    
+    @IBOutlet weak var frontContainerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var frontContainerViewBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var frontContainerView: UIView!
     @IBOutlet weak var backContainerView: UIView!
-    @IBOutlet weak var floatingView: UIView!
     
     fileprivate var backViewController: UIViewController?
     fileprivate var frontViewController: UIViewController?
@@ -39,66 +47,97 @@ class FloatingEscapeViewController: UIViewController {
         setup()
     }
     
-    func inject<T: FloatingEscapeControllable, U: FloatingEscapeControllable>(backViewController: T, frontViewController: U) where T: UIViewController, U: UIViewController {
-        backViewController.floatingEscapeViewController = self
-        frontViewController.floatingEscapeViewController = self
+    func inject<T: FloatingEscapeControllable, U: FloatingEscapeControllable>
+        (backViewController: T,
+         frontViewController: U,
+         floatingHeight: CGFloat,
+         topMargin: CGFloat,
+         floatingBottomMargin: CGFloat) where T: UIViewController, U: UIViewController {
+        
+        backViewController.floatingEscapeController = self
+        frontViewController.floatingEscapeController = self
         self.backViewController = backViewController
         self.frontViewController = frontViewController
+        self.floatingHeight = floatingHeight
+        self.topMargin = topMargin
+        self.floatingBottomMargin = floatingBottomMargin
     }
+    
 }
 
 extension FloatingEscapeViewController: FloatingEscapeController {
     func show() {
-        floatingViewHeightConstraint.constant = floatingViewDefaultHeightConstraint
-        floatingViewTopConstraint.constant = 0
+        delegate?.didStartedShowFrontViewController()
+        frontContainerViewTopConstraint.constant = topMargin
         frontContainerViewBottomConstraint.constant = 0
-        UIView.animate(withDuration: 0.3) { [weak self] in
-            self?.view.layoutIfNeeded()
-        }
+        layoutWithAnimation()
     }
     
-    func hide() {
-        floatingViewHeightConstraint.constant = 0
-        floatingViewTopConstraint.constant = UIScreen.main.bounds.height
+    func hide(animated: Bool) {
+        delegate?.didStartedHideFrontViewController()
+        frontContainerViewTopConstraint.constant = UIScreen.main.bounds.height
         frontContainerViewBottomConstraint.constant = -UIScreen.main.bounds.height
-        UIView.animate(withDuration: 0.3) { [weak self] in
-            self?.view.layoutIfNeeded()
+        if animated {
+            layoutWithAnimation()
         }
     }
     
     func escape() {
-        floatingViewHeightConstraint.constant = floatingViewDefaultHeightConstraint
-        floatingViewTopConstraint.constant = UIScreen.main.bounds.height - floatingViewDefaultHeightConstraint - 20
-        frontContainerViewBottomConstraint.constant = -(UIScreen.main.bounds.height - floatingViewDefaultHeightConstraint - 20)
-        UIView.animate(withDuration: 0.3) { [weak self] in
-            self?.view.layoutIfNeeded()
+        delegate?.didStartedEscapeFrontViewController()
+        frontContainerViewTopConstraint.constant = UIScreen.main.bounds.height - floatingHeight - 20 - floatingBottomMargin
+        frontContainerViewBottomConstraint.constant = -(UIScreen.main.bounds.height - floatingHeight - 20 - floatingBottomMargin)
+        layoutWithAnimation()
+    }
+    
+    private func layoutWithAnimation() {
+        UIView.animate(
+            withDuration: 0.7,
+            delay: 0.0,
+            usingSpringWithDamping: 0.85,
+            initialSpringVelocity: 0.0,
+            options: [],
+            animations: { [weak self] in
+                self?.view.layoutIfNeeded()
+            },
+            completion: { (finished) in
+                
         }
+        )
     }
 }
 
 
 extension FloatingEscapeViewController {
-    @IBAction func didSwipedFloatingView(_ sender: UIPanGestureRecognizer) {
-        let translationPoint = sender.translation(in: floatingView)
+    func didSwipedFrontContainerView(_ sender: UIPanGestureRecognizer) {
+        let startLocation = swipeStartPoint ?? sender.location(in: frontContainerView)
+        guard startLocation.y <= frontContainerView.bounds.origin.y + floatingHeight else { return }
+        
+        let translationPoint = sender.translation(in: frontContainerView)
         let isVerticalSwipe = !(sqrt(translationPoint.x * translationPoint.x) / sqrt(translationPoint.y * translationPoint.y) > 1)
         guard isVerticalSwipe else { return }
+        
         switch sender.state {
+        case .began:
+            swipeStartPoint = sender.location(in: frontContainerView)
         case .changed:
-            let transition = translationPoint.y > 0 ? translationPoint.y : UIScreen.main.bounds.height - floatingViewDefaultHeightConstraint + translationPoint.y
-            floatingViewTopConstraint.constant = transition
+            let transition = translationPoint.y > 0 ? translationPoint.y + topMargin : UIScreen.main.bounds.height - floatingHeight + translationPoint.y - topMargin
+            frontContainerViewTopConstraint.constant = transition
             frontContainerViewBottomConstraint.constant = -transition
         case .ended:
             let threshold = UIScreen.main.bounds.height / 2
-            if floatingViewTopConstraint.constant > threshold {
+            if frontContainerViewTopConstraint.constant > threshold {
                 escape()
             } else {
                 show()
             }
+            swipeStartPoint = nil
         default: break
         }
     }
     
-    @IBAction func didTappedFloatingView(_ sender: UITapGestureRecognizer) {
+    func didTappedFrontContainerView(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: frontContainerView)
+        guard location.y <= frontContainerView.bounds.origin.y + floatingHeight else { return }
         let isPutAway = frontContainerViewBottomConstraint.constant == 0
         if isPutAway {
             escape()
@@ -113,7 +152,11 @@ extension FloatingEscapeViewController {
         guard let backVC = backViewController, let frontVC = frontViewController else { return }
         displayContentController(content: backVC, container: backContainerView)
         displayContentController(content: frontVC, container: frontContainerView)
-        hide()
+        
+        frontContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.didTappedFrontContainerView(_:))))
+        frontContainerView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.didSwipedFrontContainerView(_:))))
+        
+        hide(animated: false)
     }
     
     private func displayContentController(content: UIViewController, container: UIView) {

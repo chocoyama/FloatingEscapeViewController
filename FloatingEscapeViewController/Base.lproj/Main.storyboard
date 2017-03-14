@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4DY-om-sgm">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4DY-om-sgm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -44,6 +44,10 @@
         <scene sceneID="xzX-CC-Pn3">
             <objects>
                 <viewController storyboardIdentifier="BackViewController" id="ucY-by-SuP" customClass="BackViewController" customModule="FloatingEscapeViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YaY-ig-l4o"/>
+                        <viewControllerLayoutGuide type="bottom" id="jmS-pH-9u6"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DtH-Rb-yAQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,6 +92,10 @@
         <scene sceneID="DSb-zP-YJX">
             <objects>
                 <viewController storyboardIdentifier="FrontViewController" id="tkh-0d-aal" customClass="FrontViewController" customModule="FloatingEscapeViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qqd-9S-OQR"/>
+                        <viewControllerLayoutGuide type="bottom" id="m8W-zM-LBV"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="B37-2J-a93">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,13 +114,31 @@
                                     <action selector="didTappedHideButton:" destination="tkh-0d-aal" eventType="touchUpInside" id="RQw-Vs-DHH"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3r-0d-wzY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="1bu-tf-umM"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="bGk-74-D7T">
+                                        <barButtonItem key="rightBarButtonItem" title="Button" id="g6Z-d9-CI6">
+                                            <connections>
+                                                <action selector="didTappedBarButton:" destination="tkh-0d-aal" id="wne-MO-PfK"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="D3r-0d-wzY" firstAttribute="top" secondItem="qqd-9S-OQR" secondAttribute="bottom" id="0WC-d6-Hy6"/>
+                            <constraint firstItem="D3r-0d-wzY" firstAttribute="leading" secondItem="B37-2J-a93" secondAttribute="leading" id="BdZ-rg-dcj"/>
                             <constraint firstItem="RLD-Yg-Fo5" firstAttribute="centerY" secondItem="B37-2J-a93" secondAttribute="centerY" id="JSY-RU-YiV"/>
                             <constraint firstItem="RLD-Yg-Fo5" firstAttribute="centerX" secondItem="B37-2J-a93" secondAttribute="centerX" id="Uo0-ab-1LD"/>
                             <constraint firstItem="Q4p-Kj-KLS" firstAttribute="centerX" secondItem="B37-2J-a93" secondAttribute="centerX" id="Vb2-dr-f88"/>
                             <constraint firstItem="RLD-Yg-Fo5" firstAttribute="top" secondItem="Q4p-Kj-KLS" secondAttribute="bottom" constant="20" id="kvt-fD-SQr"/>
+                            <constraint firstAttribute="trailing" secondItem="D3r-0d-wzY" secondAttribute="trailing" id="qSc-mL-Vpj"/>
                         </constraints>
                     </view>
                 </viewController>

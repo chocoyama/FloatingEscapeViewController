@@ -10,18 +10,18 @@ import UIKit
 
 class BackViewController: UIViewController, FloatingEscapeControllable {
     
-    weak var floatingEscapeViewController: FloatingEscapeViewController?
+    weak var floatingEscapeController: FloatingEscapeController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func didTappedShowButton(_ sender: Any) {
-        floatingEscapeViewController?.show()
+        floatingEscapeController?.show()
     }
     
     @IBAction func didTappedHideButton(_ sender: Any) {
-        floatingEscapeViewController?.hide()
+        floatingEscapeController?.hide(animated: true)
     }
     
 }

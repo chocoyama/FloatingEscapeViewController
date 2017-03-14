@@ -16,7 +16,7 @@ class EntryViewController: UIViewController {
     
     @IBAction func didTappedEntryButton(_ sender: Any) {
         let vc = floatingEscapeViewController
-        vc.inject(backViewController: backViewController, frontViewController: frontViewController)
+        vc.inject(backViewController: backViewController, frontViewController: frontViewController, floatingHeight: 44, topMargin: 20, floatingBottomMargin: 0)
         present(vc, animated: true, completion: nil)
     }
     

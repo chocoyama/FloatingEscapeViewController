@@ -10,18 +10,21 @@ import UIKit
 
 class FrontViewController: UIViewController, FloatingEscapeControllable {
     
-    weak var floatingEscapeViewController: FloatingEscapeViewController?
+    weak var floatingEscapeController: FloatingEscapeController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func didTappedHideButton(_ sender: Any) {
-        floatingEscapeViewController?.hide()
+        floatingEscapeController?.hide(animated: true)
     }
 
     @IBAction func didTappedEscapeButton(_ sender: Any) {
-        floatingEscapeViewController?.escape()
+        floatingEscapeController?.escape()
     }
 
+    @IBAction func didTappedBarButton(_ sender: Any) {
+        print("")
+    }
 }

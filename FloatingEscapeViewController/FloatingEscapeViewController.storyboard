@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,32 +24,18 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xys-dk-D7W">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Isz-Km-6Ym">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="bv5-II-aMY"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="9Mt-9M-htO" appends="YES" id="8MH-zE-gDB"/>
-                                    <outletCollection property="gestureRecognizers" destination="eOa-vE-nef" appends="YES" id="V6D-qN-hgs"/>
-                                </connections>
-                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvF-yy-OXk">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Isz-Km-6Ym" secondAttribute="trailing" id="7YW-gy-Kd8"/>
                             <constraint firstAttribute="bottom" secondItem="fvF-yy-OXk" secondAttribute="bottom" id="7gv-99-aNe"/>
                             <constraint firstItem="Xys-dk-D7W" firstAttribute="leading" secondItem="cvA-Ma-slp" secondAttribute="leading" id="81x-kC-Img"/>
-                            <constraint firstItem="Isz-Km-6Ym" firstAttribute="leading" secondItem="cvA-Ma-slp" secondAttribute="leading" id="C03-JX-cjO"/>
-                            <constraint firstItem="fvF-yy-OXk" firstAttribute="top" secondItem="Isz-Km-6Ym" secondAttribute="bottom" id="GyT-DB-4IU"/>
+                            <constraint firstItem="fvF-yy-OXk" firstAttribute="top" secondItem="03O-BX-bBl" secondAttribute="bottom" id="EA2-Gc-MrQ"/>
                             <constraint firstAttribute="trailing" secondItem="fvF-yy-OXk" secondAttribute="trailing" id="JfM-M6-S4E"/>
                             <constraint firstItem="Xys-dk-D7W" firstAttribute="top" secondItem="03O-BX-bBl" secondAttribute="bottom" id="RXC-wC-2to"/>
-                            <constraint firstItem="Isz-Km-6Ym" firstAttribute="top" secondItem="03O-BX-bBl" secondAttribute="bottom" id="XLt-Kf-dgY"/>
                             <constraint firstItem="ugx-o6-Vo5" firstAttribute="top" secondItem="Xys-dk-D7W" secondAttribute="bottom" id="a9Q-gM-yYz"/>
                             <constraint firstItem="fvF-yy-OXk" firstAttribute="leading" secondItem="cvA-Ma-slp" secondAttribute="leading" id="gkX-Fu-OFh"/>
                             <constraint firstAttribute="trailing" secondItem="Xys-dk-D7W" secondAttribute="trailing" id="koG-Wm-CAA"/>
@@ -58,24 +44,12 @@
                     <navigationItem key="navigationItem" id="CEw-Rb-dWx"/>
                     <connections>
                         <outlet property="backContainerView" destination="Xys-dk-D7W" id="onR-XB-BEN"/>
-                        <outlet property="floatingView" destination="Isz-Km-6Ym" id="Zdu-dK-vWr"/>
-                        <outlet property="floatingViewHeightConstraint" destination="bv5-II-aMY" id="Va8-bb-Xgg"/>
-                        <outlet property="floatingViewTopConstraint" destination="XLt-Kf-dgY" id="Ys8-mH-p6k"/>
                         <outlet property="frontContainerView" destination="fvF-yy-OXk" id="2Ih-0b-mPn"/>
                         <outlet property="frontContainerViewBottomConstraint" destination="7gv-99-aNe" id="oLQ-O8-XYo"/>
+                        <outlet property="frontContainerViewTopConstraint" destination="EA2-Gc-MrQ" id="jig-DY-KnE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DuY-on-xdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="9Mt-9M-htO">
-                    <connections>
-                        <action selector="didTappedFloatingView:" destination="GwL-LQ-GUx" id="VpA-v0-eQ9"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="eOa-vE-nef">
-                    <connections>
-                        <action selector="didSwipedFloatingView:" destination="GwL-LQ-GUx" id="wdB-zu-Xqt"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-836" y="-1211.2443778110946"/>
         </scene>
