@@ -10,6 +10,11 @@ import UIKit
 
 class FrontViewController: UIViewController, FloatingEscapeControllable {
     
+    class func create() -> FrontViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "FrontViewController") as! FrontViewController
+    }
+    
     weak var floatingEscapeController: FloatingEscapeController?
 
     override func viewDidLoad() {

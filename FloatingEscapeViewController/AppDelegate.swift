@@ -15,7 +15,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+//        let floatingEscapeViewController = FloatingEscapeViewController.create()
+//        floatingEscapeViewController.inject(
+//            backViewController: BackViewController.create(),
+//            frontViewController: FrontViewController.create(),
+//            floatingHeight: 44,
+//            topMargin: 0,
+//            floatingBottomMargin: 49
+//        )
+//        window?.rootViewController = floatingEscapeViewController
+        let floatingEscapeTabViewController = FloatingEscapeTabViewController.create()
+        floatingEscapeTabViewController.set(
+            items: [
+                .init(viewController: BackViewController.create(),
+                      tabBarItem: UITabBarItem(tabBarSystemItem: UITabBarSystemItem.favorites, tag: 0)),
+                .init(viewController: BackViewController.create(),
+                      tabBarItem: UITabBarItem(tabBarSystemItem: UITabBarSystemItem.bookmarks, tag: 1)),
+                ],
+            front: FrontViewController.create()
+        )
+        window?.rootViewController = floatingEscapeTabViewController
+        window?.makeKeyAndVisible()
         return true
     }
 

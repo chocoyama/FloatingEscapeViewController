@@ -24,7 +24,12 @@ protocol FloatingEscapeViewControllerDelegate: class {
     func didStartedEscapeFrontViewController()
 }
 
-class FloatingEscapeViewController: UIViewController {
+class FloatingEscapeViewController: UIViewController, ViewContainerable {
+    
+    class func create() -> FloatingEscapeViewController {
+        let storyboard = UIStoryboard(name: "FloatingEscapeViewController", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "FloatingEscapeViewController") as! FloatingEscapeViewController
+    }
     
     weak var delegate: FloatingEscapeViewControllerDelegate?
     
@@ -66,6 +71,7 @@ class FloatingEscapeViewController: UIViewController {
 }
 
 extension FloatingEscapeViewController: FloatingEscapeController {
+    
     func show() {
         delegate?.didStartedShowFrontViewController()
         frontContainerViewTopConstraint.constant = topMargin
@@ -101,9 +107,10 @@ extension FloatingEscapeViewController: FloatingEscapeController {
             },
             completion: { (finished) in
                 
-        }
+            }
         )
     }
+    
 }
 
 
@@ -138,8 +145,7 @@ extension FloatingEscapeViewController {
     func didTappedFrontContainerView(_ sender: UITapGestureRecognizer) {
         let location = sender.location(in: frontContainerView)
         guard location.y <= frontContainerView.bounds.origin.y + floatingHeight else { return }
-        let isPutAway = frontContainerViewBottomConstraint.constant == 0
-        if isPutAway {
+        if frontContainerViewBottomConstraint.constant == 0 {
             escape()
         } else {
             show()
@@ -158,17 +164,5 @@ extension FloatingEscapeViewController {
         
         hide(animated: false)
     }
-    
-    private func displayContentController(content: UIViewController, container: UIView) {
-        addChildViewController(content)
-        content.view.frame = container.bounds
-        container.addSubview(content.view)
-        content.didMove(toParentViewController: self)
-    }
-    
-    private func hideContentController(content: UIViewController) {
-        content.willMove(toParentViewController: self)
-        content.view.removeFromSuperview()
-        content.removeFromParentViewController()
-    }
 }
+

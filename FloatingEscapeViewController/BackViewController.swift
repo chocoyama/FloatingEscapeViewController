@@ -10,6 +10,11 @@ import UIKit
 
 class BackViewController: UIViewController, FloatingEscapeControllable {
     
+    class func create() -> BackViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "BackViewController") as! BackViewController
+    }
+    
     weak var floatingEscapeController: FloatingEscapeController?
     
     override func viewDidLoad() {

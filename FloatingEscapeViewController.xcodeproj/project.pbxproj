@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8041D4B11E765AF700FD914B /* FloatingEscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8041D4B01E765AF700FD914B /* FloatingEscapeViewController.swift */; };
+		80697FF81E794EB900CE9AF7 /* FloatingEscapeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80697FF71E794EB900CE9AF7 /* FloatingEscapeTabViewController.swift */; };
+		80697FFC1E79503D00CE9AF7 /* ViewContainerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80697FFB1E79503D00CE9AF7 /* ViewContainerable.swift */; };
+		80697FFE1E79539400CE9AF7 /* FloatingEscapeTabViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80697FFD1E79539400CE9AF7 /* FloatingEscapeTabViewController.storyboard */; };
 		807BC1FD1E77AE8B007D8D67 /* BackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807BC1FC1E77AE8B007D8D67 /* BackViewController.swift */; };
 		807BC1FF1E77AE96007D8D67 /* FrontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807BC1FE1E77AE96007D8D67 /* FrontViewController.swift */; };
 		807BC2051E77EB4F007D8D67 /* FloatingEscapeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 807BC2041E77EB4F007D8D67 /* FloatingEscapeViewController.storyboard */; };
@@ -39,6 +42,9 @@
 
 /* Begin PBXFileReference section */
 		8041D4B01E765AF700FD914B /* FloatingEscapeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingEscapeViewController.swift; sourceTree = "<group>"; };
+		80697FF71E794EB900CE9AF7 /* FloatingEscapeTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingEscapeTabViewController.swift; sourceTree = "<group>"; };
+		80697FFB1E79503D00CE9AF7 /* ViewContainerable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewContainerable.swift; sourceTree = "<group>"; };
+		80697FFD1E79539400CE9AF7 /* FloatingEscapeTabViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FloatingEscapeTabViewController.storyboard; sourceTree = "<group>"; };
 		807BC1FC1E77AE8B007D8D67 /* BackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackViewController.swift; sourceTree = "<group>"; };
 		807BC1FE1E77AE96007D8D67 /* FrontViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontViewController.swift; sourceTree = "<group>"; };
 		807BC2041E77EB4F007D8D67 /* FloatingEscapeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FloatingEscapeViewController.storyboard; sourceTree = "<group>"; };
@@ -82,6 +88,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		80697FF91E794F9400CE9AF7 /* FloatingEscapeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				807BC2041E77EB4F007D8D67 /* FloatingEscapeViewController.storyboard */,
+				8041D4B01E765AF700FD914B /* FloatingEscapeViewController.swift */,
+				807BC1FC1E77AE8B007D8D67 /* BackViewController.swift */,
+				807BC1FE1E77AE96007D8D67 /* FrontViewController.swift */,
+				807BC2061E77EB8A007D8D67 /* EntryViewController.swift */,
+			);
+			name = FloatingEscapeViewController;
+			sourceTree = "<group>";
+		};
 		80E0F52F1E7649CE004CE79A = {
 			isa = PBXGroup;
 			children = (
@@ -105,16 +123,15 @@
 		80E0F53A1E7649CE004CE79A /* FloatingEscapeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				80697FF91E794F9400CE9AF7 /* FloatingEscapeViewController */,
 				80E0F53B1E7649CE004CE79A /* AppDelegate.swift */,
-				807BC2041E77EB4F007D8D67 /* FloatingEscapeViewController.storyboard */,
-				8041D4B01E765AF700FD914B /* FloatingEscapeViewController.swift */,
 				80E0F53F1E7649CE004CE79A /* Main.storyboard */,
 				80E0F5421E7649CE004CE79A /* Assets.xcassets */,
 				80E0F5441E7649CE004CE79A /* LaunchScreen.storyboard */,
 				80E0F5471E7649CE004CE79A /* Info.plist */,
-				807BC1FC1E77AE8B007D8D67 /* BackViewController.swift */,
-				807BC1FE1E77AE96007D8D67 /* FrontViewController.swift */,
-				807BC2061E77EB8A007D8D67 /* EntryViewController.swift */,
+				80697FF71E794EB900CE9AF7 /* FloatingEscapeTabViewController.swift */,
+				80697FFB1E79503D00CE9AF7 /* ViewContainerable.swift */,
+				80697FFD1E79539400CE9AF7 /* FloatingEscapeTabViewController.storyboard */,
 			);
 			path = FloatingEscapeViewController;
 			sourceTree = "<group>";
@@ -247,6 +264,7 @@
 				80E0F5461E7649CE004CE79A /* LaunchScreen.storyboard in Resources */,
 				80E0F5431E7649CE004CE79A /* Assets.xcassets in Resources */,
 				807BC2051E77EB4F007D8D67 /* FloatingEscapeViewController.storyboard in Resources */,
+				80697FFE1E79539400CE9AF7 /* FloatingEscapeTabViewController.storyboard in Resources */,
 				80E0F5411E7649CE004CE79A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,8 +293,10 @@
 				807BC1FF1E77AE96007D8D67 /* FrontViewController.swift in Sources */,
 				807BC2071E77EB8A007D8D67 /* EntryViewController.swift in Sources */,
 				8041D4B11E765AF700FD914B /* FloatingEscapeViewController.swift in Sources */,
+				80697FF81E794EB900CE9AF7 /* FloatingEscapeTabViewController.swift in Sources */,
 				807BC1FD1E77AE8B007D8D67 /* BackViewController.swift in Sources */,
 				80E0F53C1E7649CE004CE79A /* AppDelegate.swift in Sources */,
+				80697FFC1E79503D00CE9AF7 /* ViewContainerable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
